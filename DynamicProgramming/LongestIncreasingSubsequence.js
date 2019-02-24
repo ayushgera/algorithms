@@ -40,7 +40,7 @@
     console.log(increasingSequences.join("\n"));
  }
 
- findLISTBruteDP([10, 22, 9, 33, 21, 50, 41, 60, 80])
+ findLISDP([10, 22, 9, 33, 21, 50, 41, 60, 80])
 
 // DP : O(n^2))
 /**
@@ -53,7 +53,7 @@
  * a= [10 22 9 33 21 50 41 60 80]
  * t= [ 1  1 1  1  1  1  1  1  1]
  */
-function findLISTBruteDP(a){
+function findLISDP(a){
     var increasingSequence= [];
     // intialise all with ones (the sequence will atleast be that number)
     for(var i=0; i<a.length; i++){
@@ -80,3 +80,24 @@ function findLISTBruteDP(a){
     console.log(sequence.reverse());
 }
 
+// using recurson
+function findLISRecursion(a){
+    var sequence=[];
+    for(var i=0; i<a.length; i++){
+        sequence.push(1);
+    }
+    (function findLIS(index){
+        if(index==0){
+            return 1;
+        }
+        for(var j=0;j<index;j++){
+            if(a[index]>=a[j]){
+                sequence[index]= Math.max(findLIS(j)+1,sequence[index]);
+            }
+        }
+        return sequence[index];
+    })(a.length-1)
+    // print the whole sequence, index of max is the answer, too lazy to do it completely :)
+    console.log(sequence.join(","));
+}
+findLISRecursion([10, 22, 9, 33, 21, 50, 41, 60, 80])
