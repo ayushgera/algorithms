@@ -12,6 +12,9 @@
  * Input : arr[] = {50, 3, 10, 7, 40, 80}
  * Output : Length of LIS = 4
  * The longest NON DECREASING subsequence is {3, 7, 40, 80}
+ * 
+ * note: one of the better O(nlogn) solution is here:
+ * https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/
  **/
 
  // brute force : O(n^2)
@@ -101,3 +104,5 @@ function findLISRecursion(a){
     console.log(sequence.join(","));
 }
 findLISRecursion([10, 22, 9, 33, 21, 50, 41, 60, 80])
+
+
