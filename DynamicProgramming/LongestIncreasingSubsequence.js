@@ -76,7 +76,7 @@ function findLISDP(a){
     var end= Math.max.apply(null,increasingSequence);
     var sequence=[];
     sequence.push(a[increasingSequence.indexOf(end)]);
-    // not end is not the index, but the max value till an index
+    // note: end is not the index, but the max value till an index
     while(end>1){
         sequence.push(a[increasingSequence.indexOf(--end)]);
     }
